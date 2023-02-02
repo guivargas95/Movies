@@ -1,7 +1,7 @@
 export default function Page2(){
     return(
         <div>
-            <p>Page2</p>
+            <p className="bg-black">Page2</p>
         </div>
     )
 }
