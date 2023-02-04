@@ -1,4 +1,5 @@
 import Banner from "../../components/banner";
+import Movies from "../../components/movies";
 import Navbar from "../../components/navbar";
 
 export default function Home(){
@@ -6,6 +7,7 @@ export default function Home(){
         <div>
             <Navbar />
             <Banner />
+            <Movies />
         </div>
     )
 }
