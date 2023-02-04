@@ -7,8 +7,9 @@ export function useFetch<T = unknown>(url: string) {
     useEffect(() => {
         axios.get(url)
             .then(response => {
-                setData(response.data);
+                setData(response.data.results);
             })
     }, [])
+
     return { data }
 }
