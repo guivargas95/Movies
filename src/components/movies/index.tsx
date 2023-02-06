@@ -24,7 +24,7 @@ export default function Movies() {
                         return (
                             <li className="flex flex-col justify-center bg-black text-white mt-5 mb-5 md:mr-3 md:ml-3" key={response.id}>
                                 <h3 className="h-16 font-titles text-2xl mt-3 mb-3">{response.title}</h3>
-                                <img className="h-full" src={`${image_path}${response.poster_path}`} alt="" />
+                                <img className="md:h-full" src={`${image_path}${response.poster_path}`} alt="" />
                                 <p className="mt-3 mb-3">{resumeOverview}...</p>
                                 <button className="bg-red-600 mt-2 mb-5">Read More!</button>
                                 
