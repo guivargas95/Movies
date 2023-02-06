@@ -12,7 +12,7 @@ export default function Movies() {
     return (
 
         <section>
-            <div className="">
+            <div className="text-center text-2xl mt-10 font-bold">
                 <h2>Top 20 best rated movies!</h2>
                 <input type="SEARCH" name="" id="" />
             </div>
@@ -20,10 +20,10 @@ export default function Movies() {
                 <ul className="flex flex-col text-center">
                     {movies?.map(response => {
                         return (
-                            <li className="flex flex-col justify-center border border-black mt-5 mb-5" key={response.id}>
+                            <li className="flex flex-col justify-center bg-black text-white mt-5 mb-5" key={response.id}>
                                 <h3 className="text-2xl mt-3 mb-3">{response.title}</h3>
                                 <img src={`${image_path}${response.poster_path}`} alt="" />
-                                <p>{response.overview}</p>
+                                <p className="mt-3 mb-3">{response.overview}</p>
                             </li>
                     )
                     })}
