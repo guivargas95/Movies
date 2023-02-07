@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useFetch } from "../../hooks/useFetch";
 import { iMovies } from "../../types/MoviesType";
 
@@ -6,8 +7,12 @@ export default function Movies() {
 
     const { data: movies } = useFetch<iMovies[]>('https://api.themoviedb.org/3/movie/popular?api_key=a897642f12e0358a2aaf4d47cacad777&language=en-US&page=1');
     const image_path = 'https://image.tmdb.org/t/p/w500';
+    
+    function movieProps(props:iMovies){
 
-    console.log(movies)
+
+    }
+
 
     return (
 
@@ -26,7 +31,7 @@ export default function Movies() {
                                 <h3 className="h-16 w-auto  font-titles text-2xl mt-3 mb-3">{response.title}</h3>
                                 <img className="md:h-128 md:w-128 mr-auto ml-auto" src={`${image_path}${response.poster_path}`} alt="" />
                                 <p className="w-auto h-20 mt-3 mb-3">{resumeOverview}...</p>
-                                <button className="w-full bg-red-600 mt-2 mb-5">Read More!</button>
+                                <Link to="/moviepage" state={response}><button className="w-full bg-red-600 mt-2 mb-5">Read More!</button></Link>
                                 
                             </li>
                     )
