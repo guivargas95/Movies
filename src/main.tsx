@@ -7,14 +7,15 @@ import {
 } from "react-router-dom";
 import Home from './pages/home'
 import './index.css'
-import Page2 from './pages/page2';
+import MoviePage from './pages/moviePage';
+
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="page2" element={<Page2 />} />
+        <Route path="moviepage" element={<MoviePage />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
