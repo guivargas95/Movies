@@ -18,7 +18,7 @@ export default function Movies() {
 
         <section>
             <div className="text-center text-2xl mt-10 font-bold">
-                <h2>Top 20 best rated movies!</h2>
+                <h2 className="font-titles from-stone-900">Top 20 best rated movies!</h2>
                 <input type="SEARCH" name="" id="" />
             </div>
             <div className="flex flex-col">
@@ -27,9 +27,9 @@ export default function Movies() {
                         const resumeOverview = response.overview.substring(0,150)
 
                         return (
-                            <li className="flex flex-col justify-center bg-black text-white mt-5 mb-5 md:mr-3 md:ml-3" key={response.id}>
+                            <li className="flex flex-col justify-center bg-black text-white mt-5 mb-5 md:mr-3 md:ml-3 rounded-3xl" key={response.id}>
                                 <h3 className="h-16 w-auto  font-titles text-2xl mt-3 mb-3">{response.title}</h3>
-                                <img className="md:h-128 md:w-128 mr-auto ml-auto" src={`${image_path}${response.poster_path}`} alt="" />
+                                <img className="h-128 md:w-128 mr-auto ml-auto" src={`${image_path}${response.poster_path}`} alt="" />
                                 <p className="w-auto h-20 mt-3 mb-3">{resumeOverview}...</p>
                                 <Link to="/moviepage" state={response}><button className="w-full bg-red-600 mt-2 mb-5">Read More!</button></Link>
                                 
