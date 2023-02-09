@@ -19,7 +19,7 @@ export default function Movies() {
 
     function urlToSearch() {
         setHttpLink(`https://api.themoviedb.org/3/search/movie?api_key=a897642f12e0358a2aaf4d47cacad777&language=en-US&query=${stringToSearch.replace(" ", "%20")}&page=1&include_adult=false`);
-        setTitlePage('Your results finded: ')
+        setTitlePage('Your finded results: ')
     }
 
 
