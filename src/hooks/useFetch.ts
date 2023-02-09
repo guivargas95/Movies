@@ -9,7 +9,7 @@ export function useFetch<T = unknown>(url: string) {
             .then(response => {
                 setData(response.data.results);
             })
-    }, [])
+    }, [url])
 
     return { data }
 }
