@@ -8,7 +8,7 @@ import { iPageMovies } from "../../types/PageMoviesType";
 export default function Movies() {
     4
     const [pageNumber, setPageNumber] = useState(1)
-    const [titlePage, setTitlePage] = useState('TOP 20 best rated movies!')
+    const [titlePage, setTitlePage] = useState('TOP best rated movies!')
     const [httpLink, setHttpLink] = useState(`https://api.themoviedb.org/3/movie/popular?api_key=a897642f12e0358a2aaf4d47cacad777&language=en-US&page=${pageNumber}`);
     const { data: movies } = useFetch<iMovies[]>(httpLink);
     const { pageData: moviesPage } = useFetch<iPageMovies>(httpLink);
