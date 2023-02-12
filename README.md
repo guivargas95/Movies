@@ -1,8 +1,8 @@
 <h1>Movies Project</h1>
 
 <h2>Purpose of project</h2>
-<p>This project have purpose to consume themovieDB API and show the best rated movies of the moment and allow the user to search for any movie at the Database.</p>
-<p>All the project is responsive and it was developed with mobile-first methodology with TailwindCSS.</p>
+<p>This project have purpose to consume themovieDB API and show the best rated movies of the moment and allow the user to search for any movie at the Database</p>
+<p>All the project is responsive and it was developed with mobile-first methodology with TailwindCSS</p>
 
 <h2>Screenshots</h2>
 <h3>Mobile version</h3>
