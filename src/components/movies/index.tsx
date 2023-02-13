@@ -76,7 +76,7 @@ export default function Movies() {
                         return (
                             <li className="flex flex-col justify-center bg-black text-white mt-5 mb-5 md:mr-3 md:ml-3 rounded-3xl" key={response.id}>
                                 <h3 className="h-16 w-auto  font-titles text-2xl mt-3 mb-3">{response.title}</h3>
-                                <Link to="/moviepage" state={response}><img className="h-96 md:w-96 mr-auto ml-auto" src={`${image_path}${response.poster_path}`} alt="" /></Link>
+                                <Link to="/moviepage" state={response}><img className="h-96 md:w-96 mr-auto ml-auto" src={`${image_path}${response.poster_path}`} alt="Image of movie" /></Link>
                                 <p className="w-auto h-20 mt-3 mb-3">{resumeOverview}...</p>
                                 <Link to="/moviepage" state={response}><button className="w-full bg-red-600 mt-2 mb-5">Read More!</button></Link>
                             </li>
