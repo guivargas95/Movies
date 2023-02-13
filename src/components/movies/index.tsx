@@ -64,16 +64,19 @@ export default function Movies() {
                 <h2 className="font-titles from-stone-900">{titlePage}</h2>
             </div>
             <div className="flex justify-center mb-10 mt-10 w-auto h-auto">
-                <button className="ml-3 mr-3 w-28  bg-black text-white font-bold" onClick={backPage}>Back</button>
+                <button className="ml-3 mr-3 w-28 hover:bg-color1  bg-black text-white font-bold" onClick={backPage}>Back</button>
                 <p className="ml-3 mr-3 text-red-500 font-bold">{moviesPage?.page}</p>
-                <button className="ml-3 mr-3 w-28 bg-black text-white font-bold" onClick={nextPage}>Next</button>
+                <button className="ml-3 mr-3 w-28 hover:bg-color1 bg-black text-white font-bold" onClick={nextPage}>Next</button>
             </div>
             <div className="flex flex-col">
                 <ul className="flex flex-col text-center md:grid md:grid-cols-2 lg:grid-cols-3">
                     {movies?.map(response => {
                         const resumeOverview = response.overview.substring(0, 150)
+                        console.log('Aqui o lengão')
+                        console.log(movies.length)
 
                         return (
+                            
                             <li className="flex flex-col justify-center bg-black text-white mt-5 mb-5 md:mr-3 md:ml-3 rounded-3xl" key={response.id}>
                                 <h3 className="h-16 w-auto  font-titles text-2xl mt-3 mb-3">{response.title}</h3>
                                 <Link to="/moviepage" state={response}><img className="h-96 md:w-96 mr-auto ml-auto" src={`${image_path}${response.poster_path}`} alt="Image of movie" /></Link>
@@ -85,9 +88,9 @@ export default function Movies() {
                 </ul>
             </div>
             <div className="flex justify-center mb-10 mt-10 w-auto h-auto">
-                <button className="ml-3 mr-3 w-28  bg-black text-white font-bold" onClick={backPage}>Back</button>
+                <button className="ml-3 mr-3 w-28 hover:bg-color1  bg-black text-white font-bold" onClick={backPage}>Back</button>
                 <p className="ml-3 mr-3 text-red-500 font-bold">{pageNumber}</p>
-                <button className="ml-3 mr-3 w-28 bg-black text-white font-bold" onClick={nextPage}>Next</button>
+                <button className="ml-3 mr-3 w-28 hover:bg-color1 bg-black text-white font-bold" onClick={nextPage}>Next</button>
             </div>
         </section>
     )
