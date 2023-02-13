@@ -13,7 +13,9 @@ module.exports = {
         '128': '32rem',
       },
 
-      colors: {},
+      colors: {
+        color1: '#464DAC',
+      },
 
     },
     fontFamily: {
