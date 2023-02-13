@@ -6,7 +6,7 @@ import { iPageMovies } from "../../types/PageMoviesType";
 
 
 export default function Movies() {
-    4
+
     const [pageNumber, setPageNumber] = useState(1)
     const [titlePage, setTitlePage] = useState('TOP best rated movies!')
     const [httpLink, setHttpLink] = useState(`https://api.themoviedb.org/3/movie/popular?api_key=a897642f12e0358a2aaf4d47cacad777&language=en-US&page=${pageNumber}`);
@@ -25,13 +25,10 @@ export default function Movies() {
         setTitlePage(`Finded results for "${stringToSearch}": ${moviesPage?.total_results}`)
     }
 
-
     function nextPage() {
         if (pageNumber != moviesPage?.total_pages) {
             setHttpLink(httpLink.replace(`page=${pageNumber}`, `page=${pageNumber + 1}`))
             setPageNumber(pageNumber + 1)
-
-
         }
     }
 
@@ -39,6 +36,10 @@ export default function Movies() {
         if (pageNumber > 1) {
             setHttpLink(httpLink.replace(`page=${pageNumber}`, `page=${pageNumber - 1}`))
             setPageNumber(pageNumber - 1)
+        }
+        else {
+            setHttpLink('https://api.themoviedb.org/3/movie/popular?api_key=a897642f12e0358a2aaf4d47cacad777&language=en-US&page=1')
+            setTitlePage('TOP best rated movies!')
         }
     }
 
