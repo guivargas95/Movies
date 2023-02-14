@@ -3,8 +3,6 @@ import { useFetch } from "../../hooks/useFetch";
 import { iMovies } from "../../types/MoviesType";
 import { SetStateAction, useEffect, useState } from 'react'
 import { iPageMovies } from "../../types/PageMoviesType";
-import ScrollToTop from "../scrollToTop";
-
 
 export default function Movies() {
 
@@ -24,7 +22,7 @@ export default function Movies() {
         if (stringToSearch != "") {
             setPageNumber(1)
             setHttpLink(`https://api.themoviedb.org/3/search/movie?api_key=a897642f12e0358a2aaf4d47cacad777&language=en-US&query=${stringToSearch.replace(" ", "%20")}&page=${1}&include_adult=false`);
-            setTitlePage(`Finded results for "${stringToSearch}": ${moviesPage?.total_results}`)
+            setTitlePage(`Finded results for "${stringToSearch}": `)
         }
     }
 
@@ -32,7 +30,6 @@ export default function Movies() {
         if (pageNumber != moviesPage?.total_pages) {
             setHttpLink(httpLink.replace(`page=${pageNumber}`, `page=${pageNumber + 1}`))
             setPageNumber(pageNumber + 1)
-            ScrollToTop()
         }
     }
 
@@ -40,12 +37,10 @@ export default function Movies() {
         if (pageNumber > 1) {
             setHttpLink(httpLink.replace(`page=${pageNumber}`, `page=${pageNumber - 1}`))
             setPageNumber(pageNumber - 1)
-            ScrollToTop()
         }
         else {
             setHttpLink('https://api.themoviedb.org/3/movie/popular?api_key=a897642f12e0358a2aaf4d47cacad777&language=en-US&page=1')
             setTitlePage('TOP best rated movies!')
-            ScrollToTop()
         }
     }
 
@@ -76,7 +71,7 @@ export default function Movies() {
                         console.log(movies.length)
 
                         return (
-                            
+
                             <li className="flex flex-col justify-center bg-black text-white mt-5 mb-5 md:mr-3 md:ml-3 rounded-3xl" key={response.id}>
                                 <h3 className="h-16 w-auto  font-titles text-2xl mt-3 mb-3">{response.title}</h3>
                                 <Link to="/moviepage" state={response}><img className="h-96 md:w-96 mr-auto ml-auto" src={`${image_path}${response.poster_path}`} alt="Image of movie" /></Link>
