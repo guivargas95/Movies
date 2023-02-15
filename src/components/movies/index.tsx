@@ -6,23 +6,31 @@ import { iPageMovies } from "../../types/PageMoviesType";
 
 export default function Movies() {
 
-    const [pageNumber, setPageNumber] = useState(1)
-    const [titlePage, setTitlePage] = useState('TOP best rated movies!')
+    const [pageNumber, setPageNumber] = useState(1);
     const [httpLink, setHttpLink] = useState(`https://api.themoviedb.org/3/movie/popular?api_key=a897642f12e0358a2aaf4d47cacad777&language=en-US&page=${pageNumber}`);
     const { data: movies } = useFetch<iMovies[]>(httpLink);
     const { pageData: moviesPage } = useFetch<iPageMovies>(httpLink);
     const image_path = 'https://image.tmdb.org/t/p/w500';
     const [stringToSearch, setStringToSearch] = useState('');
-
+    const [titlePage, setTitlePage] = useState('TOP best rated movies!');
     const handleChange = (event: { target: { value: SetStateAction<string>; }; }) => {
         setStringToSearch(event.target.value);
     };
 
+    useEffect(() => {
+        if (httpLink === `https://api.themoviedb.org/3/movie/popular?api_key=a897642f12e0358a2aaf4d47cacad777&language=en-US&page=${pageNumber}`) {
+            setTitlePage("The best rated movies!")
+        }
+        else {
+            setTitlePage(`Results Finded for "${stringToSearch}": ${moviesPage?.total_results}`);
+        }
+
+    }, [moviesPage?.total_results]);
+
     function urlToSearch() {
         if (stringToSearch != "") {
-            setPageNumber(1)
-            setHttpLink(`https://api.themoviedb.org/3/search/movie?api_key=a897642f12e0358a2aaf4d47cacad777&language=en-US&query=${stringToSearch.replace(" ", "%20")}&page=${1}&include_adult=false`);
-            setTitlePage(`Finded results for "${stringToSearch}": `)
+            setPageNumber(1);
+            setHttpLink(`https://api.themoviedb.org/3/search/movie?api_key=a897642f12e0358a2aaf4d47cacad777&language=en-US&query=${stringToSearch.replace(" ", "%20")}&page=${1}&include_adult=false`);          
         }
     }
 
@@ -67,8 +75,6 @@ export default function Movies() {
                 <ul className="flex flex-col text-center md:grid md:grid-cols-2 lg:grid-cols-3">
                     {movies?.map(response => {
                         const resumeOverview = response.overview.substring(0, 150)
-                        console.log('Aqui o lengão')
-                        console.log(movies.length)
 
                         return (
 
@@ -81,11 +87,6 @@ export default function Movies() {
                         )
                     })}
                 </ul>
-            </div>
-            <div className="flex justify-center mb-10 mt-10 w-auto h-auto">
-                <button className="ml-3 mr-3 w-28 hover:bg-color1  bg-black text-white font-bold" onClick={backPage}>Back</button>
-                <p className="ml-3 mr-3 text-red-500 font-bold">{pageNumber}</p>
-                <button className="ml-3 mr-3 w-28 hover:bg-color1 bg-black text-white font-bold" onClick={nextPage}>Next</button>
             </div>
         </section>
     )
