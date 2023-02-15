@@ -2,6 +2,6 @@ export interface iPageMovies {
     
     page: number;
     total_pages: number;
-    total_results: number;
+    total_results: any;
 
 }
