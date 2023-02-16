@@ -5,9 +5,9 @@ export default function SingleMovie() {
     let { state } = useLocation();
 
     return (
-        <div className="flex flex-col bg-black text-white text-center justify-center">
+        <div className="flex flex-col bg-black text-white text-center justify-center items-center">
             <h1 className="bg-red-600 mt-10 mb-10 text-2xl md:text-5xl" >{state.title}</h1>
-            <img className=" md:w-1/3 md:mr-auto md:ml-auto " src={`${image_path}${state.poster_path}`} alt="" />
+            <img className="w-128 h-128" src={`${image_path}${state.poster_path}`} alt="" />
             <div className="mt-5 mb-5">
                 <h2>Rate: {state.vote_average}</h2>
                 <h2>Release: {state.release_date}</h2>
