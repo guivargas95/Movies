@@ -71,14 +71,14 @@ export default function Movies() {
                 <p className="ml-3 mr-3 text-red-500 font-bold">{moviesPage?.page}</p>
                 <button className="ml-3 mr-3 w-28 hover:bg-color1 bg-black text-white font-bold" onClick={nextPage}>Next</button>
             </div>
-            <div className="flex flex-col">
-                <ul className="flex flex-col text-center md:grid md:grid-cols-2 lg:grid-cols-3 items-center content-center">
+            <div className="flex flex-col items-center">
+                <ul className="flex flex-col text-center md:w-3/4 md:grid md:grid-cols-2 md:gap-x-5 md:gap-y-5 lg:grid-cols-3 items-center content-center">
                     {movies?.map(response => {
                         const resumeOverview = response.overview.substring(0, 150)
 
                         return (
 
-                            <li className="flex w-96 lg:w-80 flex-col justify-center bg-black text-white mt-5 mb-5 mr-auto ml-auto rounded-3xl" key={response.id}>
+                            <li className="flex w-96 md:w-auto flex-col justify-center bg-black text-white mt-5 mb-5 mr-auto ml-auto rounded-3xl" key={response.id}>
                                 <h3 className="h-16 w-auto  font-titles text-2xl mt-3 mb-3">{response.title}</h3>
                                 <Link to="/moviepage" state={response}><img className="h-96 md:w-96 mr-auto ml-auto" src={`${image_path}${response.poster_path}`} alt="Image of movie" /></Link>
                                 <p className="w-auto h-20 mt-3 mb-3">{resumeOverview}...</p>
