@@ -8,7 +8,7 @@ export default function Navbar() {
                 <nav>
                     <ul className="flex mt-12 font-bold text-2xl">
                         <li className="ml-6 mr-6 lg:ml-10 lg:mr-10 hover:text-color1"><Link to="/">Home</Link></li>
-                        <li className="ml-6 mr-6 lg:ml-10 lg:mr-10 hover:text-color1"><a href="https://portfolio-react-vite.vercel.app/" target="_blank">Contact</a></li>
+                        <li className="ml-6 mr-6 lg:ml-10 lg:mr-10 hover:text-color1"><a href="https://guilherme-vargas.vercel.app/" target="_blank">Contact</a></li>
                     </ul>
                 </nav>
             </div>
